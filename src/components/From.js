@@ -22,8 +22,8 @@ export default function From(props) {
   return (
     <>
         <div className="mb-3">
-            <h2>Enter {props.heading}</h2>  
-            <textarea className="form-control" id="myBox" value={text} onChange={handleChange} rows="3" placeholder='Enter text here'></textarea>
+            <h2 style={props.textStyle}>Enter {props.heading}</h2>  
+            <textarea className="form-control" id="myBox" value={text} onChange={handleChange} rows="3" placeholder='Enter text here' style={{backgroundColor: props.mode === 'light'?'white':'grey', color: props.mode === 'light'?'black':'white'}}></textarea>
         
 
             <button className='btn btn-primary my-3 mx-2' onClick={upperCase}>UpperCase</button>
@@ -32,13 +32,13 @@ export default function From(props) {
         </div>
 
         <div className="container my-3">
-            <h1>text details</h1>
-            <p>
+            <h1 style={props.textStyle}>text details</h1>
+            <p style={props.textStyle}>
                 {text.split(" ").length} words and {text.length} characters
             </p>
 
-            <h2>Preview</h2>
-            <p>{text}</p>
+            <h2 style={props.textStyle}>Preview</h2>
+            <p style={props.textStyle}>{text}</p>
         </div>
     </>
     
