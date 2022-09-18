@@ -9,6 +9,10 @@ export default function From(props) {
     const lowerCase = () =>{
         setText(text.toLowerCase());
     }
+    const clearText = () =>{
+        let newtext = '';
+        setText(newtext);
+    }
     const handleChange = (event)=>{
         console.log("handleChange triggered");
         setText(event.target.value); 
@@ -24,6 +28,7 @@ export default function From(props) {
 
             <button className='btn btn-primary my-3 mx-2' onClick={upperCase}>UpperCase</button>
             <button className='btn btn-primary my-3 mx-2' onClick={lowerCase}>LowerCase</button>
+            <button className='btn btn-primary my-3 mx-2' onClick={clearText}>Clear Text</button>
         </div>
 
         <div className="container my-3">
@@ -31,6 +36,9 @@ export default function From(props) {
             <p>
                 {text.split(" ").length} words and {text.length} characters
             </p>
+
+            <h2>Preview</h2>
+            <p>{text}</p>
         </div>
     </>
     
