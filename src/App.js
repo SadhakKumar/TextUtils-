@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Form from './components/From';
 import About from './components/About';
 import React, {useState} from 'react'
+import Alert from './components/Alert';
 
 function App() {
 
@@ -11,6 +12,19 @@ function App() {
   const [textStyle,setTextStyle] = useState({
     color: 'black'
   })
+  const [alert, setAlert] = useState(null);
+
+  const showAlert = (message, type)=>{
+    setAlert({
+      msg: message,
+      type: type
+    })
+
+    setTimeout(() =>{
+      setAlert(null);
+    },1500)
+  }
+
   const toggleDark =() =>{
     if(darkMode === 'light'){
       setdarkMode('dark');
@@ -19,6 +33,7 @@ function App() {
         color: 'white'
       })
       document.body.style.backgroundColor = 'grey'
+      showAlert("Dark Mode Enable","success");
     }
     else{
       setdarkMode('light');
@@ -27,12 +42,14 @@ function App() {
         color: 'black'
       })
       document.body.style.backgroundColor = 'white'
+      showAlert("Light Mode Enable","success");
     }
   }
 
   return (
     <div>
       <Navbar title = "TextUtils" mode ={darkMode} togglemode = {toggleDark} modeName = {modeName} textStyle = {textStyle}/>   
+      <Alert Alert = {alert}/>
       <div className="container">
         <Form heading = "Text" textStyle = {textStyle} mode ={darkMode}/>
       </div>
