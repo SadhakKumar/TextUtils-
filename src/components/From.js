@@ -26,9 +26,9 @@ export default function From(props) {
             <textarea className="form-control" id="myBox" value={text} onChange={handleChange} rows="3" placeholder='Enter text here' style={{backgroundColor: props.mode === 'light'?'white':'grey', color: props.mode === 'light'?'black':'white'}}></textarea>
         
 
-            <button className='btn btn-primary my-3 mx-2' onClick={upperCase}>UpperCase</button>
-            <button className='btn btn-primary my-3 mx-2' onClick={lowerCase}>LowerCase</button>
-            <button className='btn btn-primary my-3 mx-2' onClick={clearText}>Clear Text</button>
+            <button className={`btn btn-${props.buttonColor} my-3 mx-2`} onClick={upperCase}>UpperCase</button>
+            <button className={`btn btn-${props.buttonColor} my-3 mx-2`} onClick={lowerCase}>LowerCase</button>
+            <button className={`btn btn-${props.buttonColor} my-3 mx-2`} onClick={clearText}>Clear Text</button>
         </div>
 
         <div className="container my-3">
