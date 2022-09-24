@@ -34,7 +34,7 @@ export default function From(props) {
         <div className="container my-3">
             <h1 style={props.textStyle}>text details</h1>
             <p style={props.textStyle}>
-                {text.split(" ").length} words and {text.length} characters
+                {text.split(" ").filter((element)=>{return element.length !== 0}).length} words and {text.length} characters
             </p>
 
             <h2 style={props.textStyle}>Preview</h2>
